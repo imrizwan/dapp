@@ -1,19 +1,16 @@
 module.exports = {
-    siteTitle: 'Gatsby Ethereum Dapp Starter',
-    siteDesc: 'Gatsby v2 Starter for Ethereum Dapps using Web3 with various Account Management options',
-    siteAuthor: 'Rob Secord (robsecord.eth)',
+    siteTitle: 'Gatsby Ethereum Dapp',
+    siteDesc: 'Gatsby v2 for Ethereum Dapps using Web3',
+    siteAuthor: 'Muhammad Rizwan',
     siteLogoUrl: 'src/images/gatsby-icon.png',
 
     manifestName: 'Ethereum Dapp',
     manifestShortName: 'EthDapp', // max 12 characters
-    manifestStartUrl: 'https://gatsby-eth-dapp.runkodapps.com/',
+    manifestStartUrl: 'https://example.runkodapps.com/',
     manifestBackgroundColor: '#663399',
     manifestThemeColor: '#663399',
     manifestDisplay: 'standalone',
     manifestIcon: 'src/images/gatsby-icon.png',
-
-    // This path is subpath of your hosting https://your.domain/gatsby-eth-dapp-starter/
-    // pathPrefix: `/gatsby-eth-dapp-starter/`,
     pathPrefix: '/',
 
     // social

@@ -1,8 +1,8 @@
 {
   "name": "gatsby-eth-dapp-starter",
-  "description": "Gatsby v2 Starter for Ethereum Dapps using Web3 with various Account Management options",
+  "description": "Gatsby v2 for Ethereum Dapps using Web3",
   "version": "0.0.1",
-  "author": "Rob Secord <robsecord.eth>",
+  "author": "Muhammad Rizwan",
   "keywords": [
     "Gatsby",
     "Web3",
@@ -76,9 +76,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/robsecord/gatsby-eth-dapp-starter"
-  },
-  "bugs": {
-    "url": "https://github.com/robsecord/gatsby-eth-dapp-starter/issues"
+    "url": "https://github.com/imrizwan/dapp"
   }
 }

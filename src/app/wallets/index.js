@@ -5,18 +5,7 @@ import * as _ from 'lodash';
 import { GLOBALS } from '../utils/globals';
 
 // Wallets
-import CoinbaseWallet from './coinbase';
-import FortmaticWallet from './fortmatic';
-import TorusWallet from './torus';
-import PortisWallet from './portis';
-import UportWallet from './uport';
-import AuthereumWallet from './authereum';
-import BitskiWallet from './bitski';
-import SquareLinkWallet from './squarelink';
-import ArkaneWallet from './arkane';
-import WalletConnectWallet from './walletconnect';
 import MetamaskWallet from './metamask';
-import NativeWallet from './native';
 
 
 class Wallet {
@@ -65,24 +54,22 @@ class Wallet {
         await this.wallet.disconnect();
     }
 
+    async getInformation() {
+        if (!this.wallet) { return; }
+        const blockNumber =  await this.wallet.web3.eth.getBlockNumber()
+        return {
+            blockNumber,
+            eth: this.wallet.web3.eth
+        }
+    }
+
     static getName(type) {
         return (Wallet.typeMap()[type]).name || 'Unknown';
     }
 
     static typeMap() {
         return {
-            [GLOBALS.WALLET_TYPE_COINBASE]      : {wallet: CoinbaseWallet,      name: 'Coinbase WalletLink', options: {}},
-            [GLOBALS.WALLET_TYPE_WALLETCONNECT] : {wallet: WalletConnectWallet, name: 'Wallet Connect',      options: {}},
-            [GLOBALS.WALLET_TYPE_FORTMATIC]     : {wallet: FortmaticWallet,     name: 'Fortmatic',           options: {}},
-            [GLOBALS.WALLET_TYPE_TORUS]         : {wallet: TorusWallet,         name: 'Torus',               options: {}},
-            [GLOBALS.WALLET_TYPE_PORTIS]        : {wallet: PortisWallet,        name: 'Portis',              options: {}},
-            [GLOBALS.WALLET_TYPE_UPORT]         : {wallet: UportWallet,         name: 'Uport',               options: {}},
-            [GLOBALS.WALLET_TYPE_AUTHEREUM]     : {wallet: AuthereumWallet,     name: 'Authereum',           options: {}},
-            [GLOBALS.WALLET_TYPE_BITSKI]        : {wallet: BitskiWallet,        name: 'Bitski',              options: {appCallbackUrl: 'https://myapp.com/callback.html'}},
-            [GLOBALS.WALLET_TYPE_SQUARELINK]    : {wallet: SquareLinkWallet,    name: 'SquareLink',          options: {}},
-            [GLOBALS.WALLET_TYPE_ARKANE]        : {wallet: ArkaneWallet,        name: 'Arkane',              options: {}},
             [GLOBALS.WALLET_TYPE_METAMASK]      : {wallet: MetamaskWallet,      name: 'MetaMask',            options: {}},
-            [GLOBALS.WALLET_TYPE_NATIVE]        : {wallet: NativeWallet,        name: 'Native',              options: {}},
         };
     }
 
